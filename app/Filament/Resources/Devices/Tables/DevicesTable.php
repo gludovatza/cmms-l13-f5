@@ -35,7 +35,7 @@ class DevicesTable
                     ->dateTime('Y-m-d H:i')
                     ->searchable()->sortable()
                     ->toggleable(isToggledHiddenByDefault: false),
-                TextColumn::make('created_at')->label(__('fields.created_at'))
+                TextColumn::make('updated_at')->label(__('fields.updated_at'))
                     ->dateTime('Y-m-d H:i')
                     ->searchable()->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

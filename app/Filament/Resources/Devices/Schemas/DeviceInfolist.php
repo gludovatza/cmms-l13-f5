@@ -29,7 +29,7 @@ class DeviceInfolist
                     TextEntry::make('history')->label(__('fields.history')),
                     TextEntry::make('notes')->label(__('fields.note')),
                 ])
-                ->columns(['md' => 2, 'xxl' => 4])
+                ->columns(['md' => 2, '2xl' => 4])
                 ->columnSpanFull()
             ]);
     }

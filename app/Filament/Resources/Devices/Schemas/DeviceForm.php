@@ -27,6 +27,10 @@ class DeviceForm
                         ->relationship('type', 'name')
                         ->searchable()
                         ->preload()
+                        ->default(function () {
+                            $deviceTypeId = request()->query('device_type_id');
+                            return $deviceTypeId ?: null;
+                        })
                         ->createOptionForm([
                             TextInput::make('name')->label(__('fields.name'))
                                 ->required()

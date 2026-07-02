@@ -33,18 +33,18 @@ class DevicesRelationManager extends RelationManager
             ])
             ->headerActions([
                 CreateAction::make()->url(fn(): string
-                    => DeviceResource::getUrl('create')),
+                    => DeviceResource::getUrl('create', ['device_type_id' => $this->ownerRecord->getKey()])),
             ])
             ->recordActions([
                 ViewAction::make()->url(fn(Model $record): string
                     => DeviceResource::getUrl('view', ['record' => $record])),
                 EditAction::make()->url(fn(Model $record): string
-                    => DeviceResource::getUrl('edit', ['record' => $record])),
+                    => DeviceResource::getUrl('edit', ['record' => $record, 'device_type_id' => $this->ownerRecord->getKey()])),
             ])
             ->toolbarActions([])
             ->emptyStateActions([
                 CreateAction::make()->url(fn(): string
-                    => DeviceResource::getUrl('create')),
+                    => DeviceResource::getUrl('create', ['device_type_id' => $this->ownerRecord->getKey()])),
             ]);
     }
 
