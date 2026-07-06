@@ -14,4 +14,5 @@ return [
     'no' => 'Nem',
     'inactive' => 'Inaktív',
     'all' => 'Mind',
+    'qr_code'=> 'QR Kód',
 ];

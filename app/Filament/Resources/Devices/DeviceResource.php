@@ -68,6 +68,7 @@ class DeviceResource extends Resource
             'create' => CreateDevice::route('/create'),
             'view' => ViewDevice::route('/{record}'),
             'edit' => EditDevice::route('/{record}/edit'),
+            'qr' => Pages\QRDevice::route('/qr/{record}'),
         ];
     }
 }

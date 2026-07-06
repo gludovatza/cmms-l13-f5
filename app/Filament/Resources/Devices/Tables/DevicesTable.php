@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Devices\Tables;
 
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -9,6 +10,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Contracts\View\View;
 
 class DevicesTable
 {
@@ -46,6 +48,11 @@ class DevicesTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                Action::make('QR')->label(__('fields.qr_code'))
+                    ->modalContent(fn($record): View => view('filament.resources.devices.pages.q-r-device', ['record' => $record]))
+                    ->modalSubmitAction(false)
+                    ->modalCancelAction(false)
+                    ->icon('heroicon-o-qr-code'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

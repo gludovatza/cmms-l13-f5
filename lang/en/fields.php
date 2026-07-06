@@ -14,4 +14,5 @@ return [
     'no' => 'No',
     'inactive' => 'Inactive',
     'all' => 'All',
+    'qr_code'=> 'QR Code',
 ];
