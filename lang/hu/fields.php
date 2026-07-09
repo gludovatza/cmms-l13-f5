@@ -15,4 +15,5 @@ return [
     'inactive' => 'Inaktív',
     'all' => 'Mind',
     'qr_code'=> 'QR Kód',
+    'attachment' => 'Csatolt fájl',
 ];

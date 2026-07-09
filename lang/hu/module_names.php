@@ -12,4 +12,8 @@ return [
         'label' => 'Berendezés',
         'plural_label' => 'Berendezések',
     ],
+    'documents' => [
+        'label' => 'Dokumentum',
+        'plural_label' => 'Dokumentumok',
+    ],
 ];

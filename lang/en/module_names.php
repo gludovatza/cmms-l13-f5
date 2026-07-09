@@ -12,4 +12,8 @@ return [
         'label' => 'Device',
         'plural_label' => 'Devices',
     ],
+    'documents' => [
+        'label' => 'Document',
+        'plural_label' => 'Documents',
+    ],
 ];
