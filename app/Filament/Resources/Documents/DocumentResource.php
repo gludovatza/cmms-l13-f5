@@ -22,9 +22,11 @@ class DocumentResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
+    protected static ?int $navigationSort = 6;
+
     public static function getNavigationGroup(): string
     {
-        return __('module_names.navigation_groups.administration');
+        return __('module_names.navigation_groups.maintenance');
     }
     public static function getModelLabel(): string
     {

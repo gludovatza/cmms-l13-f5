@@ -21,10 +21,11 @@ class DeviceTypeResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrench;
 
     protected static ?string $recordTitleAttribute = 'name';
+    protected static ?int $navigationSort = 4;
 
     public static function getNavigationGroup(): string
     {
-        return __('module_names.navigation_groups.administration');
+        return __('module_names.navigation_groups.maintenance');
     }
 
     public static function getModelLabel(): string
