@@ -16,4 +16,8 @@ return [
     'all' => 'All',
     'qr_code'=> 'QR Code',
     'attachment' => 'Attachment',
+    'deleted_at' => 'Deleted at',
+    'password' => 'Password',
+    'email' => 'Email',
+    'new_password' => 'New Password',
 ];

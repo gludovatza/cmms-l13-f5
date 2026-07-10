@@ -5,6 +5,11 @@ return [
         'administration' => 'Adminisztráció',
         'maintenance' => 'Karbantartás',
     ],
+
+    'widgets' => [
+        'usersbyroles' => 'Felhasználók szerepkörök szerint',
+    ],
+
     'device_types' => [
         'label' => 'Berendezés típus',
         'plural_label' => 'Berendezés típusok',
@@ -21,5 +26,13 @@ return [
     'permissions' => [
         'label' => 'Engedély',
         'plural_label' => 'Engedélyek',
+    ],
+    'roles' => [
+        'label' => 'Szerepkör',
+        'plural_label' => 'Szerepkörök',
+    ],
+    'users' => [
+        'label' => 'Felhasználó',
+        'plural_label' => 'Felhasználók',
     ],
 ];

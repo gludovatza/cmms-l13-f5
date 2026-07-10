@@ -5,6 +5,11 @@ return [
         'administration' => 'Administration',
         'maintenance' => 'Maintenance',
     ],
+
+    'widgets' => [
+        'usersbyroles' => 'Users by Roles',
+    ],
+
     'device_types' => [
         'label' => 'Device type',
         'plural_label' => 'Device types',
@@ -21,5 +26,13 @@ return [
     'permissions' => [
         'label' => 'Permission',
         'plural_label' => 'Permissions',
+    ],
+    'roles' => [
+        'label' => 'Role',
+        'plural_label' => 'Roles',
+    ],
+    'users' => [
+        'label' => 'User',
+        'plural_label' => 'Users',
     ],
 ];
