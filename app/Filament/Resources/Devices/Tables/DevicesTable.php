@@ -52,7 +52,8 @@ class DevicesTable
                     ->modalContent(fn($record): View => view('filament.resources.devices.pages.q-r-device', ['record' => $record]))
                     ->modalSubmitAction(false)
                     ->modalCancelAction(false)
-                    ->icon('heroicon-o-qr-code'),
+                    ->icon('heroicon-o-qr-code')
+                    ->authorize('qrCode'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

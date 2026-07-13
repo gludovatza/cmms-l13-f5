@@ -57,6 +57,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resourceCreatePageRedirect('index')
             ->resourceEditPageRedirect('index')
-            ;
+            ->strictAuthorization();
     }
 }

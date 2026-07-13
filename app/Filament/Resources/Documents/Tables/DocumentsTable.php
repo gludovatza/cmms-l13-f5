@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Documents\Tables;
 
+use App\Models\Document;
 use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -33,24 +34,37 @@ class DocumentsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                // Action::make('download')
+                //     ->label(__('actions.download'))
+                //     ->action(function ($record) {
+                //         if (Storage::exists($record->attachment)) {
+                //             return Storage::download($record->attachment);
+                //         } else {
+                //             throw new \Exception('File not found.');
+                //         }
+                //     })
+                //     ->icon('heroicon-o-document-arrow-down')
+                //     ->color('primary')
+                //     // ->authorize(fn (Document $record): bool =>
+                //     //     auth()->user()->can('download', $record)
+                //     // )
+                //     ->authorize('download'),
                 Action::make('download')
                     ->label(__('actions.download'))
-                    ->action(function ($record) {
-                        if (Storage::exists($record->attachment)) {
-                            return Storage::download($record->attachment);
-                        } else {
-                            throw new \Exception('File not found.');
-                       }
-                    })
                     ->icon('heroicon-o-document-arrow-down')
-                    ->color('primary'),
+                    ->color('primary')
+                    ->url(fn (Document $record): string =>
+                        route('documents.download', $record)
+                    )
+                    ->authorize('download'),
                 Action::make('QR')->label(__('fields.qr_code'))
                     ->modalContent(fn($record): View => view('filament.resources.documents.pages.q-r-document', ['record' => $record]))
                     ->modalSubmitAction(false)
                     ->modalCancelAction(false)
                     ->icon('heroicon-o-qr-code')
                     ->color('secondary')
-                    ->tooltip(__('actions.print') . ': ' . __('fields.qr_code')),
+                    ->tooltip(__('actions.print') . ': ' . __('fields.qr_code'))
+                    ->authorize('qrCode'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

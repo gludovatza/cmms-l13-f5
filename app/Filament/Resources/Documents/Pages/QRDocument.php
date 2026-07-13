@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Documents\Pages;
 use App\Filament\Resources\Documents\DocumentResource;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 use Filament\Resources\Pages\Page;
+use Illuminate\Support\Facades\Gate;
 
 class QRDocument extends Page
 {
@@ -17,5 +18,7 @@ class QRDocument extends Page
     public function mount(int|string $record): void
     {
         $this->record = $this->resolveRecord($record);
+
+        Gate::authorize('qrCode', $this->record);
     }
 }
