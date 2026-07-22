@@ -4,10 +4,16 @@ return [
     'navigation_groups' => [
         'administration' => 'Administration',
         'maintenance' => 'Maintenance',
+        'failure_report' => 'Failure Report',
     ],
 
     'widgets' => [
         'usersbyroles' => 'Users by Roles',
+    ],
+
+    'sections' => [
+        'users' => 'Workers',
+        'dates' => 'Dates',
     ],
 
     'device_types' => [
@@ -34,5 +40,9 @@ return [
     'users' => [
         'label' => 'User',
         'plural_label' => 'Users',
+    ],
+    'worksheets' => [
+        'label' => 'Worksheet',
+        'plural_label' => 'Worksheets',
     ],
 ];

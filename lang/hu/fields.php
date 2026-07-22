@@ -20,4 +20,16 @@ return [
     'password' => 'Jelszó',
     'email' => 'E-mail',
     'new_password' => 'Új jelszó',
+    'priority_levels' => [
+        'normal' => 'Normál',
+        'urgent' => 'Sürgős',
+        'downtime' => 'Leálláskor',
+    ],
+    'attachments' => 'Csatolt kép(ek)',
+    'creator' => 'Létrehozó',
+    'repairer' => 'Karbantartó',
+    'priority' => 'Prioritás',
+    'description' => 'Leírás',
+    'due_date' => 'Javítási határidő',
+    'finish_date' => 'Befejezés dátuma',
 ];

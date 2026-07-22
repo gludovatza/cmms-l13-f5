@@ -20,4 +20,16 @@ return [
     'password' => 'Password',
     'email' => 'Email',
     'new_password' => 'New Password',
+    'priority_levels' => [
+        'normal' => 'Normal',
+        'urgent' => 'Urgent',
+        'downtime' => 'Downtime',
+    ],
+    'attachments' => 'Attachment(s)',
+    'creator' => 'Creator',
+    'repairer' => 'Repairer',
+    'priority' => 'Priority',
+    'description' => 'Description',
+    'due_date' => 'Due date',
+    'finish_date' => 'Finish date',
 ];

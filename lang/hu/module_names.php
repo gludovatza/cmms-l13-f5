@@ -4,10 +4,16 @@ return [
     'navigation_groups' => [
         'administration' => 'Adminisztráció',
         'maintenance' => 'Karbantartás',
+        'failure_report' => 'Hibabejelentés',
     ],
 
     'widgets' => [
         'usersbyroles' => 'Felhasználók szerepkörök szerint',
+    ],
+
+    'sections' => [
+        'users' => 'Munkatársak',
+        'dates' => 'Dátumok',
     ],
 
     'device_types' => [
@@ -34,5 +40,9 @@ return [
     'users' => [
         'label' => 'Felhasználó',
         'plural_label' => 'Felhasználók',
+    ],
+    'worksheets' => [
+        'label' => 'Munkalap',
+        'plural_label' => 'Munkalapok',
     ],
 ];
