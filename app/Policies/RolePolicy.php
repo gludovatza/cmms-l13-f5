@@ -52,4 +52,9 @@ class RolePolicy
     {
         return $user->can('delete roles');
     }
+
+    public function viewStatistics(User $user): bool
+    {
+        return $user->can('view roles statistics');
+    }
 }

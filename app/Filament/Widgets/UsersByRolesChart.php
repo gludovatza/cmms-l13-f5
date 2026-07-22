@@ -67,4 +67,10 @@ class UsersByRolesChart extends ChartWidget
 
         return "rgb($r, $g, $b)";
     }
+
+    public static function canView(): bool
+    {
+        // return auth()->user()->can('read roles') && auth()->user()->can('read users');
+        return auth()->user()?->can('view roles statistics') ?? false;
+    }
 }
