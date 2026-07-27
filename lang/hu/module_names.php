@@ -9,6 +9,7 @@ return [
 
     'widgets' => [
         'usersbyroles' => 'Felhasználók szerepkörök szerint',
+        'worksheetsbypriority' => 'Munkalapok prioritás szerint',
     ],
 
     'sections' => [

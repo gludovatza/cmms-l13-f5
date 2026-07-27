@@ -38,4 +38,13 @@ enum WorksheetPriority: string implements HasLabel, HasColor, HasIcon
             self::LEALLASKOR => 'heroicon-m-sun',
         };
     }
+
+    public function getChartColor(): string
+    {
+        return match ($this) {
+            self::NORMAL => 'orange',
+            self::SURGOS => 'red',
+            self::LEALLASKOR => 'gray',
+        };
+    }
 }

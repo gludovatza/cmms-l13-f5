@@ -9,6 +9,7 @@ return [
 
     'widgets' => [
         'usersbyroles' => 'Users by Roles',
+        'worksheetsbypriority' => 'Worksheets by Priority',
     ],
 
     'sections' => [
