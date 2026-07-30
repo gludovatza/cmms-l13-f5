@@ -52,4 +52,14 @@ class WorksheetPolicy
     {
         return $user->can('delete worksheets');
     }
+
+    public function export(User $user): bool
+    {
+        return $user->can('export worksheets');
+    }
+
+    public function export_pdf(User $user): bool
+    {
+        return $user->can('export pdf worksheets');
+    }
 }

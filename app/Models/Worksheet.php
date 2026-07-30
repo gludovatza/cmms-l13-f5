@@ -23,6 +23,10 @@ class Worksheet extends Model
     protected $casts = [
         'priority' => WorksheetPriority::class,
         'attachments' => 'array',
+        'due_date' => 'datetime',
+        'finish_date' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     public function device(): BelongsTo

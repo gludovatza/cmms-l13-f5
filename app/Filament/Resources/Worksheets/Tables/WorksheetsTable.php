@@ -2,13 +2,20 @@
 
 namespace App\Filament\Resources\Worksheets\Tables;
 
+use App\Filament\Exports\WorksheetExporter;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ExportAction;
+use Filament\Actions\ExportBulkAction;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
+use App\Models\Worksheet;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Actions\Action;
 
 class WorksheetsTable
 {
@@ -64,13 +71,52 @@ class WorksheetsTable
             ->filters([
                 //
             ])
+            ->headerActions([
+                ExportAction::make()
+                    ->exporter(WorksheetExporter::class)
+                    ->authorize('export')
+                    ->formats([
+                        ExportFormat::Xlsx,
+                        // ExportFormat::Csv,
+                    ]),
+            ])
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                Action::make('exportPdf')
+                    ->label(__('actions.export_pdf'))
+                    ->icon('heroicon-o-document-arrow-down')
+                    ->color('danger')
+                    ->authorize('export_pdf')
+                    ->action(function (Worksheet $record) {
+                        $record->load([
+                            'device',
+                            'creator',
+                            'repairer',
+                        ]);
+
+                        $pdf = Pdf::loadView('pdf.worksheet', [
+                            'worksheet' => $record,
+                        ]);
+
+                        $fileName = sprintf(
+                            'worksheet-%d-%s.pdf',
+                            $record->id,
+                            $record->created_at->format('Ymd-His'),
+                        );
+
+                        return response()->streamDownload(
+                            fn() => print($pdf->output()),
+                            $fileName,
+                        );
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    ExportBulkAction::make()
+                        ->exporter(WorksheetExporter::class)
+                        ->authorize('export'),
                 ]),
             ])
             ->groups([
