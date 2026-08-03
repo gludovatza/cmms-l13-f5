@@ -125,8 +125,10 @@ class WorksheetsTable
                 Group::make('creator.name')->label(__('fields.creator')),
                 Group::make('repairer.name')->label(__('fields.repairer')),
                 Group::make('created_at')->label(__('fields.created_at'))
-                    ->date()
-            ])
+                    ->date(false)
+                    ->getTitleFromRecordUsing(fn (Worksheet $record): string =>
+                        $record->created_at->format('Y-m-d')),
+                    ])
             ->defaultGroup('priority')
             ->defaultSort('created_at', 'desc');
     }
