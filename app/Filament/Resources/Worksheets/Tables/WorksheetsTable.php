@@ -3,19 +3,21 @@
 namespace App\Filament\Resources\Worksheets\Tables;
 
 use App\Filament\Exports\WorksheetExporter;
+use App\Filament\Imports\WorksheetImporter;
+use App\Models\Worksheet;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ExportAction;
 use Filament\Actions\ExportBulkAction;
 use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Actions\ImportAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
-use App\Models\Worksheet;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Filament\Actions\Action;
 
 class WorksheetsTable
 {
@@ -110,6 +112,13 @@ class WorksheetsTable
                             $fileName,
                         );
                     }),
+            ])
+            ->headerActions([
+                ImportAction::make()
+                    ->icon('heroicon-o-arrow-up-tray')
+                    ->importer(WorksheetImporter::class)
+                    ->csvDelimiter(';')
+                    ->authorize('import'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

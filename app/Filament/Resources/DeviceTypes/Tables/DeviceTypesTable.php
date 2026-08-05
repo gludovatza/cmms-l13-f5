@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources\DeviceTypes\Tables;
 
+use App\Filament\Imports\DeviceTypeImporter;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ImportAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -36,6 +38,13 @@ class DeviceTypesTable
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                ImportAction::make()
+                    ->icon('heroicon-o-arrow-up-tray')
+                    ->importer(DeviceTypeImporter::class)
+                    ->csvDelimiter(';')
+                    ->authorize('import'),
             ])
             ->recordActions([
                 EditAction::make(),
