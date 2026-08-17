@@ -12,6 +12,10 @@ return [
         'worksheetsbypriority' => 'Worksheets by Priority',
     ],
 
+    'pages' => [
+        'weekly-timesheet' => 'Weekly timesheet'
+    ],
+
     'sections' => [
         'users' => 'Workers',
         'dates' => 'Dates',

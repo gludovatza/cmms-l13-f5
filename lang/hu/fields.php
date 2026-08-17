@@ -32,4 +32,10 @@ return [
     'description' => 'Leírás',
     'due_date' => 'Javítási határidő',
     'finish_date' => 'Befejezés dátuma',
+    'time_entry_statuses' => [
+        'draft' => 'Piszkozat',
+        'submitted' => 'Beküldve',
+        'approved' => 'Jóváhagyva',
+        'rejected' => 'Elutasítva',
+    ],
 ];

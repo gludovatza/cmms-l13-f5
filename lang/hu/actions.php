@@ -5,4 +5,5 @@ return [
     'print' => 'Nyomtatás',
     'download' => 'Letöltés',
     'export_pdf' => 'PDF exportálása',
+    'save' => 'Mentés',
 ];

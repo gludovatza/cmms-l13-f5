@@ -37,11 +37,11 @@ class ListWorksheets extends ListRecords
                     fn(Builder $query) => $query->where('priority', $priority)
                 )
                 ->label(WorksheetPriority::tryFrom($priority)?->getLabel())
-->badge(
-    WorksheetResource::getEloquentQuery()
-        ->where('priority', $priority)
-        ->count('*')
-)
+                ->badge(
+                    WorksheetResource::getEloquentQuery()
+                        ->where('priority', $priority)
+                        ->count('*')
+                )
                 ->badgeColor(WorksheetPriority::tryFrom($priority)?->getColor())
                 ->icon(WorksheetPriority::tryFrom($priority)?->getIcon());
         }

@@ -12,6 +12,10 @@ return [
         'worksheetsbypriority' => 'Munkalapok prioritás szerint',
     ],
 
+    'pages' => [
+        'weekly-timesheet' => 'Heti munkaidő elszámolás'
+    ],
+
     'sections' => [
         'users' => 'Munkatársak',
         'dates' => 'Dátumok',

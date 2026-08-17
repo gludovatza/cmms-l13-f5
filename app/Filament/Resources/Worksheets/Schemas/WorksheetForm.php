@@ -29,7 +29,7 @@ class WorksheetForm
                         ->required(),
                     Select::make('repairer_id')->label(__('fields.repairer'))
                         ->relationship('repairer', 'name', fn (Builder $query) => $query->role('repairer'))
-                        ->disabled( ! auth()->user()->can('update worksheets'))
+                        ->disabled( ! auth()->user()->hasRole('admin'))
                         ->required(fn ($operation) => $operation === 'edit')
                         ->afterStateHydrated(function (Select $component, $state) {
                             if ($state === null) {

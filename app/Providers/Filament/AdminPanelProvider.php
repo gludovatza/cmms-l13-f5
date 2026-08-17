@@ -58,6 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ->resourceCreatePageRedirect('index')
             ->resourceEditPageRedirect('index')
             ->databaseNotifications()
+            ->viteTheme('resources/css/app.css')
             // ->strictAuthorization()
             ;
     }

@@ -5,4 +5,5 @@ return [
     'print' => 'Print',
     'download' => 'Download',
     'export_pdf' => 'Export PDF',
+    'save' => 'Save',
 ];

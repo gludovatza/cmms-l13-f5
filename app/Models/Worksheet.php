@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\WorksheetPriority;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Worksheet extends Model
 {
@@ -42,5 +43,10 @@ class Worksheet extends Model
     public function repairer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'repairer_id'); // aki karbantartó!
+    }
+
+    public function timeEntries(): HasMany
+    {
+        return $this->hasMany(TimeEntry::class);
     }
 }

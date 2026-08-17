@@ -71,6 +71,12 @@ public static function getPluralModelLabel(): string
         if ( ! auth()->user()->can('update worksheets')) {
             return parent::getEloquentQuery()->where('creator_id', auth()->id());
         }
+        else if (auth()->user()->hasRole('repairer')) {
+            return parent::getEloquentQuery()->where(function ($q) {
+                $q->where('repairer_id', auth()->id())
+                ->orWhere('creator_id', auth()->id());
+            });
+        }
         return parent::getEloquentQuery();
     }
 }

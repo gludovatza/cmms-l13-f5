@@ -32,4 +32,10 @@ return [
     'description' => 'Description',
     'due_date' => 'Due date',
     'finish_date' => 'Finish date',
+    'time_entry_statuses' => [
+        'draft' => 'Draft',
+        'submitted' => 'Submitted',
+        'approved' => 'Approved',
+        'rejected' => 'Rejected',
+    ],
 ];

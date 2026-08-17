@@ -49,4 +49,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Worksheet::class, 'repairer_id');
     }
+
+    public function timeEntries(): HasMany
+    {
+        return $this->hasMany(TimeEntry::class);
+    }
 }
