@@ -33,4 +33,17 @@ class TimeEntryPolicy
     {
         return $user->can('approve time entries');
     }
+
+    public function submit(User $user, TimeEntry $timeEntry): bool
+    {
+        return $user->id === $timeEntry->user_id &&
+            $user->can('submit time entries') &&
+            in_array( $timeEntry->status, [ TimeEntryStatus::Draft, TimeEntryStatus::Rejected ], true);
+    }
+
+    public function reject(User $user, TimeEntry $timeEntry): bool
+    {
+        return $user->can('approve time entries')
+            && $timeEntry->status === TimeEntryStatus::Submitted;
+    }
 }

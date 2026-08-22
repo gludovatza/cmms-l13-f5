@@ -15,6 +15,7 @@ class TimeEntry extends Model
         'hours',
         'description',
         'status',
+        'rejection_reason',
     ];
 
     protected function casts(): array

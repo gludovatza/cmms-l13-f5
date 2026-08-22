@@ -6,4 +6,7 @@ return [
     'download' => 'Letöltés',
     'export_pdf' => 'PDF exportálása',
     'save' => 'Mentés',
+    'submit' => 'Beküldés',
+    'approve' => 'Jóváhagyás',
+    'reject' => 'Elutasítás',
 ];

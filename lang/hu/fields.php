@@ -38,4 +38,8 @@ return [
         'approved' => 'Jóváhagyva',
         'rejected' => 'Elutasítva',
     ],
+    'status' => 'Állapot',
+    'work_date' => 'Munka dátuma',
+    'hours' => 'Munkaóra',
+    'rejection_reason' => 'Elutasítás oka',
 ];

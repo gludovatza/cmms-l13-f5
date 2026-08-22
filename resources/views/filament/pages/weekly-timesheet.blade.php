@@ -48,7 +48,26 @@
                                     max="8"
                                     step="0.25"
                                     wire:model.blur="hours.{{ $worksheet->id }}.{{ $day->format('Y-m-d') }}"
+                                    wire:key="time-entry-{{ $worksheet->id }}-{{ $day->format('Y-m-d') }}"
+                                    @disabled(! $this->isEditable($worksheet->id, $day))
                                     class="w-20 rounded-lg border-gray-300">
+                                    @if ( isset( $statuses[$worksheet->id][ $day->format('Y-m-d') ] ) )
+                                        <div class="mt-1 text-xs">
+                                            {{ $statuses[$worksheet->id][ $day->format('Y-m-d') ]->getLabel() }}
+                                        </div>
+                                        @if ($statuses[$worksheet->id][ $day->format('Y-m-d') ] === \App\Enums\TimeEntryStatus::Rejected)
+                                            <div class="mt-1 flex items-center gap-1 text-xs">
+                                                <x-filament::icon
+                                                    icon="heroicon-o-information-circle"
+                                                    class="h-4 w-4 cursor-help"
+                                                    x-tooltip.raw="{{
+                                                        $rejectionReasons[$worksheet->id][$day->format('Y-m-d')]
+                                                    }}"
+                                                />
+                                            </div>
+                                        @endif
+                                    @endif
+
                             </td>
                         @endforeach
 

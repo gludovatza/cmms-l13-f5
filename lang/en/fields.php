@@ -38,4 +38,8 @@ return [
         'approved' => 'Approved',
         'rejected' => 'Rejected',
     ],
+    'status' => 'Status',
+    'work_date' => 'Work date',
+    'hours' => 'Work hour',
+    'rejection_reason' => 'Rejection reason',
 ];

@@ -6,4 +6,7 @@ return [
     'download' => 'Download',
     'export_pdf' => 'Export PDF',
     'save' => 'Save',
+    'submit' => 'Submit',
+    'approve' => 'Approve',
+    'reject' => 'Reject',
 ];
